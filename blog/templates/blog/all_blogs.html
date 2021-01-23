@@ -1,0 +1,10 @@
+<h1>Blog</h1>
+<h2>Welcome to Matthew Shortle's Blogs!</h2>
+<h2>Matthew has written {{ blogs.count }} blog{{ blogs.count|pluralize }}!</h2>
+<br>
+
+{% for blog in blogs %}
+<a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
+<h3>{‌{ blog.date|date:"j/m/Y" }} </h3>
+<p>{{ blog.description|truncatechars:100 }}</p>
+{% endfor %}
